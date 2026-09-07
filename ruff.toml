@@ -1,0 +1,30 @@
+# Matches requires-python in pyproject.toml. Setting it higher lets ruff
+# rewrite code into syntax the project claims to support but would reject:
+# PEP 758's unparenthesised `except A, B:` is a syntax error before 3.14.
+target-version = "py312"
+line-length = 120
+# Research notebooks, not package code.
+extend-exclude = ["scripts"]
+
+[lint]
+select = ["F", "E", "W", "I", "B", "C4", "UP", "N", "D"]
+ignore = [
+  "D105", # magic methods
+  "D107", # __init__
+  "D200", # one-line docstring must be single line
+  "D205", # blank line after summary
+  "D400", # first line ends with period
+]
+
+[lint.per-file-ignores]
+"**/__init__.py" = ["F401"]
+# A test's name is its documentation, so the docstring rules, which exist for
+# the package's public surface, do not apply.
+"tests/**" = ["D"]
+
+[lint.isort]
+known-first-party = ["diaxcondel"]
+combine-as-imports = true
+
+[lint.pydocstyle]
+convention = "numpy"

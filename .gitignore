@@ -1,0 +1,28 @@
+# temp code
+src/diaxcondel/inference
+
+# macOS
+*.DS_Store
+
+# venv
+.venv/
+venv/
+env/
+
+# VSCode
+.vscode
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+*_cache/
+
+# misc
+misc/
+
+# built documentation
+docs/_build/
+docs/_autosummary/

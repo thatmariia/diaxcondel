@@ -1,0 +1,62 @@
+[project]
+name = "diaxcondel"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Mariia Steeghs-Turchina"}
+]
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "pydantic (>=2.13.3,<3.0.0)",
+    "numpy (>=2.4.4,<3.0.0)",
+    "scipy (>=1.17.1,<2.0.0)",
+    "platformdirs (>=4.0,<6.0)"
+]
+
+[tool.poetry]
+packages = [{include = "diaxcondel", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.15.12"
+pytest = "^9.0.3"
+ipykernel = "^7.2.0"
+
+[tool.poetry.group.docs]
+optional = true
+[tool.poetry.group.docs.dependencies]
+sphinx = "^9.1.0"
+sphinx-autodoc-typehints = "^3.10.2"
+furo = ">=2025.0"
+myst-parser = ">=4.0"
+sphinx-copybutton = ">=0.5"
+
+[tool.poetry.group.atlas]
+optional = true
+[tool.poetry.group.atlas.dependencies]
+siibra = "^1.0.1a15"
+
+[tool.poetry.group.analysis]
+optional = true
+[tool.poetry.group.analysis.dependencies]
+specparam = ">=2.0.0rc7"
+
+[tool.poetry.group.viz]
+optional = true
+[tool.poetry.group.viz.dependencies]
+matplotlib = "^3.10.9"
+
+[tool.poetry.group.app]
+optional = true
+[tool.poetry.group.app.dependencies]
+streamlit = "^1.52.1"
+matplotlib = "^3.10.9"
+plotly = ">=6.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+diaxcondel = "diaxcondel.cli:main"
